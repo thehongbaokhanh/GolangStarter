@@ -1,11 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+)
+
+// func main() {
+// 	var name string
+// 	fmt.Print("Enter your name: ")
+// 	fmt.Scanln(&name)
+// 	fmt.Printf("Hello, %s!\n", name)
+// }
 
 func main() {
-	var name string = "Khánh"
-	name2 := "Khánh"
-	fmt.Println("Hello", name)
-	fmt.Println("Hello", name2)
-	randomUser() 
+	fmt.Print("Enter your name: ")
+	scanner := bufio.NewScanner(os.Stdin)
+	if scanner.Scan() {
+		name := scanner.Text()
+		fmt.Printf("Welcome to the Go programming language, %s!\n", name)
+	}
 }
