@@ -3,8 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	var name string
-	fmt.Print("Please enter the name: ")
-	fmt.Scanln(&name)
+	var name string = "Khánh"
+	name2 := "Khánh"
 	fmt.Println("Hello", name)
+	fmt.Println("Hello", name2)
+	randomUser() 
 }
