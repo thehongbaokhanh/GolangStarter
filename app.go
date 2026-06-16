@@ -1,12 +1,14 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"os"
-	"strconv"
-	"strings"
+    "bufio"
+    "fmt"
+    "os"
+    "strconv"
+    "strings"
 )
+
+
 
 // Bài 1:
 func sumOfNumber(a int) int {
@@ -34,7 +36,6 @@ func fibonacci(count int) int {
 	}
 	return sumResult
 }
-
 // readInt reads an integer from standard input after displaying the prompt
 func readInt(prompt string) (int, error) {
 	fmt.Print(prompt)
@@ -75,13 +76,17 @@ func main() {
 
 		switch choice {
 		case 1:
-			n, err := readInt("Nhập số n: ")
-			if err != nil || n < 0 {
-				fmt.Println("Số n phải là một số nguyên dương. Vui lòng thử lại.")
-				continue
+			var n int
+			for {
+				n, err = readInt("Nhập số n: ")
+				if err != nil || n < 0 {
+					fmt.Println("Số n phải là một số nguyên dương. Vui lòng thử lại.")
+					continue
+				}
+				result := sumOfNumber(n)
+				fmt.Printf("Tổng các số từ 1 đến %d là: %d\n", n, result)
+				break
 			}
-			result := sumOfNumber(n)
-			fmt.Printf("Tổng các số từ 1 đến %d là: %d\n", n, result)
 		case 2:
 			count, err := readInt("Nhập số lượng phần tử Fibonacci: ")
 			if err != nil || count < 0 {
